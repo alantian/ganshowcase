@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GAN using Tensorflow.js</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+
+<div class="container">
+
+
+    <nav>
+        <div class="nav-wrapper white lighten-5 ">
+            <a href="#" class="brand-logo center teal-text text-darken-3">GAN Showcase</a>
+
+            <ul id="nav-mobile" class="right">
+                <li><a href="https://alantian.net" class="teal-text text-darken-3">by Yingtao Tian</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content goes here -->
+    <div class="row main-row card-panel">
+        <div class="col s12 m12 l7">
+            <div class="generation-panel">
+
+                <div class="canvas-wrapper" id="canvas-wrapper" width="256" height="256">
+                    <canvas id="the_canvas" width="256" height="256">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m12 l5">
+            <div class="control-panel">
+                <div class="row">
+                    <div class="col s12">
+                        <h5> Model </h5>
+                        <p> ↓ Click to select a <b>better</b> (and larger) model </p>
+                        <div class="input-field">
+                            <select id="model-select">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <h5> Action </h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="waves-effect waves-light btn col s12 btn-large disabled" id="generate-button">
+                        </button>
+                    </div>
+                    <div class="col s6">
+                        <button class="waves-effect waves-light btn col s12 btn-large disabled" id="animate-button">
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <h5> Info </h5>
+                        <p class="logging" id="logging">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row intro-row card-panel">
+        <div class="col s12">
+
+            <div class="row">
+                <h4> What is it? </h4>
+
+                <p>
+                    This is a showcase of a deep GAN (Generative Adversarial Network) that
+                    generates (or <em> dreams</em>) images. The neural network runs completely in your browser.
+                </p>
+                <h4> How to use it? </h4>
+                <p>
+                    <b>Usage </b>
+                    Just click the "<b>generate</b>" button for generating a single image,
+                    or "<b>Animate</b>" for animating the generation by morphing in the latent space
+                    (Thanks <a href="https://twitter.com/nsthorat">Nikhil Thorat</a> for very helpful
+                    instructions on how to property animate!)
+                </p>
+                <p>
+                    <b>Different Models </b>
+                    You can also choose different models --- the model's description
+                    suggests its architecture (see blow), dimension of images it can generates, and size of model files.
+                </p>
+                <p>
+                    <b> Model Discussion </b>
+                    The default model to show is DCGAN, fast but with moderate quality.
+                    <em>
+                        <b>
+                            Choose ResNet models for much better result, but note they can be large and it may take some
+                            time to download.
+                        </b>
+                    </em>
+                    Also for animating, only DCGAN archives a reasonable frame rate.
+                </p>
+                <h4> Technical Details? </h4>
+                <p>
+                    The network architecture is similar to the residual network (ResNet) based generator
+                    (<a href="https://arxiv.org/abs/1704.00028">Gulrajani et al.</a>),
+                    as well as the classical DCGAN generator (<a href="https://arxiv.org/abs/1511.06434">Radford et
+                    al.</a>)
+                    and the GAN training uses DRAGAN (<a href="https://arxiv.org/abs/1705.07215">Kodali et al.</a>)
+                    style granient penalty for better stability.
+                </p>
+                <p>
+                    Training code is written in <a href="https://chainer.org/">Chainer</a>.
+                    The trained model is then manually converted to a <a href="https://keras.io/">Keras</a> model,
+                    which in turn is <a href="https://js.tensorflow.org/tutorials/import-keras.html">converted</a>
+                    to a web-runnable <a href="https://js.tensorflow.org/">TensorFlow.js</a> model.
+                </p>
+                <p>
+                    The dataset used for training is CelebAHQ, an dataset for <a
+                        href="https://openreview.net/forum?id=Hk99zCeAb&noteId=ryOnMk6rM">Karras et al.</a>
+                    which can be obtained by consulting <a
+                        href="https://github.com/tkarras/progressive_growing_of_gans">its github repo</a>.
+                    Note that only data is used in this showcase, but not the method (which is <em>much more
+                    awesome</em>, Check it out anway!)
+                </p>
+
+                <h4> Final Words? </h4>
+                <p>
+                    <a href="https://alantian.net">I just </a> create this
+                    a proof-of-concept piece of running deep generative model in browser using <a
+                        href="https://js.tensorflow.org/">TensorFlow.js</a>.
+                    Some code is inspired by <a href="https://github.com/pfnet-research/chainer-gan-lib">this great
+                    repo</a>
+                    and thanks for suggestions from friends in MakeGirlsMoe.
+                    Thanks <a href="https://twitter.com/nsthorat">Nikhil Thorat</a> for very helpful
+                    instructions on how to property animate!
+                </p>
+                <p>
+                    In case you notice that, I am a <a href="https://make.girls.moe">MakeGirlsMoe</a> team member (Yeah
+                    I'm proud of my team!),
+                    <em>
+                        still, this proof-of-concept piece uses completely different technique so it doest <b>NOT</b>
+                        represent the quality and status of MakeGirlsMoe.
+                    </em>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
