@@ -1,6 +1,6 @@
 # GAN Showcase
 
-https://alantian.net/ganshowcase/
+[Web showcase](https://alantian.net/ganshowcase/) is available.
 
 This is a showcase of a deep GAN (Generative Adversarial Network) that generates (or dreams) images.
 
