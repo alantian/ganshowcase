@@ -20,6 +20,6 @@
     "babel-runtime": "^6.26.0",
     "clang-format": "~1.2.2",
     "http-server": "^0.11.1",
-    "parcel-bundler": "^1.7.1"
+    "parcel-bundler": "^1.10.0"
   }
 }
