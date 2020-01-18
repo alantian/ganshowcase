@@ -1,0 +1,35 @@
+
+
+.main-row {
+    margin-top: 40px;
+}
+
+.generation-panel {
+    text-align: center;
+    /* padding-top: 40px; */
+}
+
+.control-panel {
+    padding-left: 30px;
+    border-left: 1px solid #ddd;
+}
+
+.canvas-wrapper {
+    /* From MGM */
+    position: relative;
+    outline: 3px dashed #ddd;
+    margin: 0 auto 40px auto;
+}
+
+.intro-row{
+    /*
+    border-top: 1px solid #ddd;
+    text-align: center;
+    */
+}
+
+.logging {
+    font-family: monospace;
+}
+
+/*# sourceMappingURL=style.6bad8580.css.map */
