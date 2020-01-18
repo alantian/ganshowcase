@@ -155,3 +155,6 @@ yarn build
 
 Finally, copy `./dist/`, which is the built web page and js file,
 to whatever suitable for web hosting.
+
+As an example, [deploy.sh](./deploy.sh) does the compilation and put everthing to [docs](./docs),
+since the GitHub Pages site is currently being built from the `/docs` folder in the master branch.
