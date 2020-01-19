@@ -1,6 +1,6 @@
 # GAN Showcase
 
-https://alantian.net/ganshowcase/ is available as a web showcase where a deep GAN (Generative Adversarial Network) that generates (or dreams) images. This repo contains all code for it. Feedback are welcome!
+https://alantian.github.io/ganshowcase/ is available as a web showcase where a deep GAN (Generative Adversarial Network) that generates (or dreams) images. This repo contains all code for it. Feedback are welcome!
 
 Technically, the network architecture is similar to the residual network (ResNet) based generator
 ([Gulrajani et al.](https://arxiv.org/abs/1704.00028)),
