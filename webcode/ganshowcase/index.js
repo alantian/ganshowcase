@@ -78,6 +78,7 @@ async function computing_animate_latent_space(model, draw_multiplier, animate_fr
         });
 
         await tf.toPixels(y, c);
+        tf.dispose(y);
         await tf.nextFrame();
     }
 }
@@ -91,6 +92,7 @@ async function computing_generate_main(model, size, draw_multiplier, latent_dim)
     });
     let c = document.getElementById("the_canvas");
     await tf.toPixels(y, c);
+    tf.dispose(y);
 }
 
 const ui_delay_before_tf_computing_ms = 2000;  // Delay that many ms before tf computing, which can block UI drawing.
