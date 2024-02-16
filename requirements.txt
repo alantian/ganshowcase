@@ -1,0 +1,11 @@
+absl==0.0
+absl_py==0.15.0
+chainer==7.8.1
+h5py==2.8.0
+Keras==2.0.8
+numpy==1.16.4
+Pillow==10.2.0
+six==1.11.0
+tensorflow==1.15.0
+tensorflowjs==1.4.0
+tqdm==4.66.2

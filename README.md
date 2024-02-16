@@ -1,5 +1,10 @@
 # GAN Showcase
 
+WORKS WITH PYTHON 3.6.15
+
+REQUIREMENTS INSIDE REQUIREMENTS.TXT FILE
+
+
 https://alantian.github.io/ganshowcase/ is available as a web showcase where a deep GAN (Generative Adversarial Network) that generates (or dreams) images. This repo contains all code for it. Feedback are welcome!
 
 Technically, the network architecture is similar to the residual network (ResNet) based generator

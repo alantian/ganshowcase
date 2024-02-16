@@ -1,3 +1,6 @@
 /scratch
 /scratch2
 /docs
+venv
+dataset
+.DS_Store

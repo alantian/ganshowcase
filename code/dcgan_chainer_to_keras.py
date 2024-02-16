@@ -10,11 +10,12 @@ from absl import logging
 
 import keras
 from keras import backend as K
-from keras.layers.core import Activation
+from keras.layers import Activation
 from keras.models import Sequential, Model
 from keras.layers import Input, Dense, Reshape, UpSampling2D, Add
-from keras.layers.convolutional import Conv2D, Conv2DTranspose
-from keras.layers.normalization import BatchNormalization
+from keras.layers import Conv2D, Conv2DTranspose
+from keras.layers import BatchNormalization
+import tensorflow as tf
 import numpy as np
 from PIL import Image
 import tensorflowjs as tfjs
@@ -267,6 +268,7 @@ def main(argv):
         get_generator = partial(get_dcgan64_keras_generator, input_dim=128, ch=512)
     else:
         raise ValueError('Unknow --arch %s' % FLAGS.arch)
+    tf.compat.v1.disable_eager_execution()
 
     generator = get_generator(weight=weight)
     print('Keras summary')
